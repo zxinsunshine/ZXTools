@@ -9,10 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-typedef enum {
-    ZXShapeCircle,
-    ZXShapeSquare
-}ZXShape;
+typedef enum { ZXShapeCircle, ZXShapeSquare } ZXShape;
 
 typedef enum {
     ZXSaveTypeDictionary,
@@ -24,11 +21,11 @@ typedef enum {
     ZXSaveTypeFloat,
     ZXSaveTypeDouble,
     ZXSaveTypeUrl
-}ZXSaveType;
+} ZXSaveType;
 
 @interface ZXTools : NSObject
 
-# pragma mark - 图片操作
+#pragma mark - 图片操作
 
 // 放缩
 + (UIImage *)resizeImage:(UIImage *)image toSize:(CGSize)size;
@@ -45,10 +42,7 @@ typedef enum {
 // 保存图片到相册
 + (void)saveImage:(UIImage *)image;
 
-
-
-
-# pragma mark - 文件夹路径获取
+#pragma mark - 文件夹路径获取
 
 // 获取APP根目录路径
 + (NSString *)getAppPath;
@@ -68,9 +62,7 @@ typedef enum {
 // 获取APP中Caches路径
 + (NSString *)getCachesPath;
 
-
-
-# pragma mark - 数据读写
+#pragma mark - 数据读写
 
 // 存储plist
 + (BOOL)saveToPlistWithObject:(id)obj andName:(NSString *)fileName;
@@ -126,8 +118,7 @@ typedef enum {
 // 解档
 + (id)getObjectFromArchiveWithFile:(NSString *)fileName;
 
-
-# pragma mark - 网络请求
+#pragma mark - 网络请求
 
 // 发送socket信息
 + (BOOL)sendSocketMsg:(NSString *)msg withIP:(NSString *)ip andPort:(NSInteger)port;
@@ -135,9 +126,14 @@ typedef enum {
 // 获取socket信息
 + (NSString *)getSocketMsgFromIP:(NSString *)ip andPort:(NSInteger)port;
 
+#pragma mark - 版本
+// 获取当前版本
++ (NSString *)getCurVersion;
 
+// 获取上一版本
++ (NSString *)getPreVersion;
 
-
-
+// 判断是否为新版本
++ (BOOL)isNewVersion;
 
 @end
